@@ -32,34 +32,50 @@ const try1 = document.querySelector(".try-text");
 const try2 = document.querySelector(".try-text1");
 const try3 = document.querySelector(".try-text2");
 
+const name1 = document.querySelector(".name1");
+const name2 = document.querySelector(".name2");
+const birthYear = document.querySelector(".dateOfBirth");
+const sexType = document.querySelector(".sex-type");
+const yourCountry = document.querySelector(".country");
+const region = document.querySelector(".region");
+const bestQuote = document.querySelector(".bestQuote");
+const socialPlatform = document.querySelector("social-platform");
+
 const btnRunQuote = document.querySelector(".btn-quote");
 
 buttons.addEventListener("click", function () {
   if (firstName.value && lastName.value) {
-    // alert(`${firstName.value} ${lastName.value}`);
+    name1.textContent = `your first name is ${firstName.value}`;
+    name2.textContent = `ur last name is ${lastName.value}`;
     try1.textContent = "option1";
     ageSexCell.classList.remove("hidden");
   } else {
     alert("fill inputs");
   }
   if (+birthDates.value && typeOfSEX) {
-    // if (Number(birthDates)) {
-    //   alert(`${birthDates.value} ${typeOfSEX.value}`);
+    birthYear.textContent = `u wea born in ${birthDates.value}`;
+    typeOfSEX.textContent = `u a a ${typeOfSEX.value}`;
     try2.textContent = "option2";
     origin.classList.remove("hidden");
-    // }
   }
   if (country.value && district.value) {
-    // alert(`${country.value} ${district.value}`);
+    yourCountry.textContent = `u a from ${country.value}`;
+    region.textContent = `ur region is ${district.value}`;
     try3.textContent = "option3";
     quotesCell.classList.remove("hidden");
-    platforms.classList.remove("hidden");
+    about.classList.remove("hidden");
   }
 });
 
 //LOGIC STRUCTURE OF QUOTES
+const string = ["come", "go", "who", "why"];
+string.forEach((el) =>
+  el.addEventListener("click", function () {
+    console.log("cliclked");
+  })
+);
+
 btnRunQuote.addEventListener("click", function () {
-  const string = ["come", "go", "who", "why"];
   small = string[Math.trunc(Math.random() * string.length)];
   document.querySelector(".quote").textContent = small;
 });
@@ -68,10 +84,10 @@ btnRunQuote.addEventListener("click", function () {
 // platformsCell.addEventListener("click", function (e) {
 //   if (e.target.classList.contains("platform")) console.log(e.target);
 // });
-const x = document.querySelectorAll(".platform");
-x.forEach(
-  (el) =>
-    //   el.addEventListener("click", function () {
-    console.log(el)
-  //   })
-);
+// const x = document.querySelectorAll(".platform");
+// x.forEach(
+//   (el) =>
+//     //   el.addEventListener("click", function () {
+//     console.log(el)
+//   //   })
+// );
