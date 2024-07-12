@@ -1,7 +1,11 @@
 "use strict";
-const p = document.querySelector(".par");
+let p = document.querySelector(".par");
 const buttons = document.querySelector(".btn");
-const string = "sfgdgshbhgdbdvcbhbfgvsf";
+let small = "";
+//LOGIC STRUCTURE OF QUOTES
+const string = ["come", "go", "who", "why"];
 buttons.addEventListener("click", function () {
-  p.textContent = string;
+  small = string[Math.trunc(Math.random() * string.length)];
+  p.textContent = small;
 });
+//LOGIC STRUCTURE OF STEPS
