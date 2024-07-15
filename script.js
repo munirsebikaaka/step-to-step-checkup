@@ -90,4 +90,4 @@ btnRunQuote.addEventListener("click", function () {
 //     //   el.addEventListener("click", function () {
 //     console.log(el)
 //   //   })
-// );
+// );j
