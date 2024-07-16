@@ -59,6 +59,7 @@ const string = [
 const appSteps = document.querySelectorAll(".try-text");
 const btnRigth = document.querySelector(".controls-right");
 const btnleft = document.querySelector(".controls-left");
+
 function movingToTheLeftPosition() {
   btnleft.addEventListener("click", function () {
     ageSexCell.classList.toggle("hidden");
