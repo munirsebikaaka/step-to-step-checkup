@@ -1,3 +1,6 @@
+body {
+  position: relative;
+}
 .hidden {
   display: none;
 }
@@ -8,9 +11,10 @@
   background-color: red;
 }
 .step-cell {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
+  position: absolute;
 }
 .all-steps-cell {
   display: flex;

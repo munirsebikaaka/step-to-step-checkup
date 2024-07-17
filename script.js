@@ -40,12 +40,15 @@ const yourCountry = document.querySelector(".country");
 const region = document.querySelector(".region");
 const bestQuote = document.querySelector(".bestQuote");
 const socialPlatform = document.querySelector("social-platform");
-
-const btnRunQuote = document.querySelector(".btn-quote");
-
-//LOGIC STRUCTURE OF QUOTES
+const appSteps = document.querySelectorAll(".try-text");
 const appQuotes = document.querySelectorAll(".quotes-content");
 const quotePal = document.querySelector(".quote");
+
+const btnRunQuote = document.querySelector(".btn-quote");
+const btnRigth = document.querySelector(".controls-right");
+const btnleft = document.querySelector(".controls-left");
+
+//LOGIC STRUCTURE OF QUOTES
 
 const string = [
   appQuotes[0].textContent,
@@ -56,44 +59,74 @@ const string = [
   appQuotes[5].textContent,
 ];
 
-const appSteps = document.querySelectorAll(".try-text");
-const btnRigth = document.querySelector(".controls-right");
-const btnleft = document.querySelector(".controls-left");
+// function movingToTheLeftPosition() {
+//   btnleft.addEventListener("click", function () {
+//     if (
+//       firstName.value &&
+//       lastName.value &&
+//       origin.classList.contains("hidden") //&&
+//       // ageSexCell.classList.contains("hidden")
+//     ) {
+//       ageSexCell.classList.add("hidden");
+//       appSteps[1].style.backgroundColor = "red";
+//     }
+//   });
+// }
 
-function movingToTheLeftPosition() {
-  btnleft.addEventListener("click", function () {
-    ageSexCell.classList.toggle("hidden");
-    appSteps[1].style.backgroundColor = "red";
-    origin.classList.toggle("hidden");
-  });
-}
-appSteps[0].style.backgroundColor = "green";
-const movingToTheRightPosition = () => {
-  if (firstName.value && lastName.value) {
-    appSteps[1].style.backgroundColor = "green";
-    ageSexCell.classList.remove("hidden");
-    movingToTheLeftPosition();
-  } else {
-    alert("fill inputs");
-  }
-  if (+birthDates.value && typeOfSEX) {
-    appSteps[2].style.backgroundColor = "green";
-    origin.classList.remove("hidden");
-  }
-  if (country.value && district.value) {
-    appSteps[3].style.backgroundColor = "green";
-    quotesCell.classList.remove("hidden");
-    about.classList.remove("hidden");
-  }
-};
-btnRigth.addEventListener("click", movingToTheRightPosition);
+// function left2() {
+//   btnleft.addEventListener("click", function () {
+//     if (
+//       +birthDates.value &&
+//       typeOfSEX.value &&
+//       quotesCell.classList.contains("hidden") //&&
+//       //!ageSexCell.classList.contains("hidden")
+//     ) {
+//       origin.classList.add("hidden");
+//       appSteps[2].style.backgroundColor = "red";
+//     }
+//   });
+// }
 
-btnRunQuote.addEventListener("click", function () {
-  small = string[Math.trunc(Math.random() * string.length)];
-  quotePal.textContent = small;
-});
-document.querySelector(".btn-quote2").addEventListener("click", function () {
-  appSteps[4].style.backgroundColor = "green";
-  document.querySelector(".selected").textContent = quotePal.textContent;
-  platforms.classList.remove("hidden");
-});
+// function left3() {
+//   btnleft.addEventListener("click", function () {
+//     if (
+//       country.value &&
+//       district.value &&
+//       !origin.classList.contains("hidden")
+//     ) {
+//       appSteps[3].style.backgroundColor = "red";
+//       quotesCell.classList.add("hidden");
+//     }
+//   });
+// }
+// appSteps[0].style.backgroundColor = "green";
+// const movingToTheRightPosition = () => {
+//   if (firstName.value && lastName.value) {
+//     appSteps[1].style.backgroundColor = "green";
+//     ageSexCell.classList.remove("hidden");
+//     movingToTheLeftPosition();
+//   } else {
+//     alert("fill inputs");
+//   }
+//   if (+birthDates.value && typeOfSEX) {
+//     appSteps[2].style.backgroundColor = "green";
+//     origin.classList.remove("hidden");
+//     // left2();
+//   }
+//   if (country.value && district.value) {
+//     appSteps[3].style.backgroundColor = "green";
+//     quotesCell.classList.remove("hidden");
+//     // left3();
+//   }
+// };
+// btnRigth.addEventListener("click", movingToTheRightPosition);
+
+// btnRunQuote.addEventListener("click", function () {
+//   small = string[Math.trunc(Math.random() * string.length)];
+//   quotePal.textContent = small;
+// });
+// document.querySelector(".btn-quote2").addEventListener("click", function () {
+//   appSteps[4].style.backgroundColor = "green";
+//   document.querySelector(".selected").textContent = quotePal.textContent;
+//   platforms.classList.remove("hidden");
+// });
