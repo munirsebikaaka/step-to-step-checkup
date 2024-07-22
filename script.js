@@ -40,11 +40,14 @@ const yourCountry = document.querySelector(".country");
 const region = document.querySelector(".region");
 const bestQuote = document.querySelector(".bestQuote");
 const socialPlatform = document.querySelector("social-platform");
-const appSteps = document.querySelectorAll(".try-text");
+const appSteps = document.querySelectorAll(".step-cell");
+const steps = document.querySelectorAll(".step");
 const appQuotes = document.querySelectorAll(".quotes-content");
 const quotePal = document.querySelector(".quote");
 
 const btnRunQuote = document.querySelector(".btn-quote");
+const selectorBtn = document.querySelector(".btn-quote2");
+
 const btnRigth = document.querySelector(".controls-right");
 const btnleft = document.querySelector(".controls-left");
 
@@ -59,43 +62,136 @@ const string = [
   appQuotes[5].textContent,
 ];
 
+let curValue = 1;
+btnRigth.addEventListener("click", function () {
+  //curValue++;
+  steps.forEach((step, i) => {
+    //if (i < curValue)
+    step.classList.add("step");
+  });
+  console.log("yay");
+});
+
+//THE FUNCTIONALLITY OF THE RANDOM QUOTE SELECTOR
+function aboutRondomQuote() {
+  btnRunQuote.addEventListener("click", function () {
+    small = string[Math.trunc(Math.random() * string.length)];
+    quotePal.textContent = small;
+  });
+}
+aboutRondomQuote();
+function selectedQUOTE() {
+  selectorBtn.addEventListener("click", function () {
+    document.querySelector(".selected").textContent = quotePal.textContent;
+  });
+}
+
+selectedQUOTE();
+
+//ADD THE SLIDE FUNCTIONALLITY TO THE SECTION
+//Add the transform property to the section
+// function addTransformProperty() {
+//   steps.forEach(
+//     (step, i) => (step.style.transform = `translateX(${i * 100}%)`)
+//   );
+// }
+// addTransformProperty();
+
+// function movingToTheRightPosition() {
+//   curValue++;
+//   steps.forEach((step, i) => {
+//     if (curValue === i) {
+//       if (curValue === 1) {
+//         if (firstName.value && lastName.value) {
+//           ageSexCell.classList.remove("hidden");
+//           namesCell.classList.add("hidden");
+//           name1.textContent = firstName.value;
+//           name2.textContent = lastName.value;
+//           step.style.backgroundColor = "yellow";
+//         }
+//       } else if (curValue === 2) {
+//         if (+birthDates.value && typeOfSEX.value) {
+//           birthYear.textContent = +birthDates.value;
+//           sexType.textContent = typeOfSEX.value;
+//           origin.classList.remove("hidden");
+//           ageSexCell.classList.add("hidden");
+//           step.style.backgroundColor = "blue";
+//         }
+//       } else if (curValue === 3) {
+//         if (country.value && district.value) {
+//           step.style.backgroundColor = "green";
+//           yourCountry.textContent = country.value;
+//           region.textContent = district.value;
+//           quotesCell.classList.remove("hidden");
+//           origin.classList.add("hidden");
+//         }
+//       } else if (curValue === 4) {
+//         if (
+//           document.querySelector(".selected").textContent ===
+//           quotePal.textContent
+//         )
+//           console.log("yes it is");
+//         bestQuote.textContent = quotePal.textContent;
+//         step.style.backgroundColor = "black";
+//         quotesCell.classList.add("hidden");
+//         about.classList.remove("hidden");
+//       }
+//     }
+//   });
+// }
 // function movingToTheLeftPosition() {
-//   btnleft.addEventListener("click", function () {
-//     if (
-//       firstName.value &&
-//       lastName.value &&
-//       origin.classList.contains("hidden") //&&
-//       // ageSexCell.classList.contains("hidden")
-//     ) {
+//   // curValue--;
+//   steps.forEach((step, i) => {
+//     if (i === 1) {
+//       namesCell.classList.remove("hidden");
+//       step.style.backgroundColor = "red";
+//       console.log("am present");
+//     } else if (i === 2) {
 //       ageSexCell.classList.add("hidden");
-//       appSteps[1].style.backgroundColor = "red";
 //     }
 //   });
 // }
 
-// function left2() {
-//   btnleft.addEventListener("click", function () {
-//     if (
-//       +birthDates.value &&
-//       typeOfSEX.value &&
-//       quotesCell.classList.contains("hidden") //&&
-//       //!ageSexCell.classList.contains("hidden")
-//     ) {
-//       origin.classList.add("hidden");
-//       appSteps[2].style.backgroundColor = "red";
-//     }
-//   });
-// }
+// btnRigth.addEventListener("click", movingToTheRightPosition);
+// btnleft.addEventListener("click", movingToTheLeftPosition);
 
-// function left3() {
-//   btnleft.addEventListener("click", function () {
-//     if (
-//       country.value &&
-//       district.value &&
-//       !origin.classList.contains("hidden")
-//     ) {
-//       appSteps[3].style.backgroundColor = "red";
-//       quotesCell.classList.add("hidden");
+// // function movingToTheLeftPosition() {
+// //   btnleft.addEventListener("click", function () {
+// //     if (
+// //       firstName.value &&
+// //       lastName.value &&
+// //       origin.classList.contains("hidden") //&&
+// //       // ageSexCell.classList.contains("hidden")
+// //     ) {
+// //       ageSexCell.classList.add("hidden");
+// //       appSteps[1].style.backgroundColor = "red";
+// //     }
+// //   });
+// // }
+
+// // function left2() {
+// //   btnleft.addEventListener("click", function () {
+// //     if (
+// //       +birthDates.value &&
+// //       typeOfSEX.value &&
+// //       quotesCell.classList.contains("hidden") //&&
+// //       //!ageSexCell.classList.contains("hidden")
+// //     ) {
+// //       origin.classList.add("hidden");
+// //       appSteps[2].style.backgroundColor = "red";
+// //     }
+// //   });
+// // }
+
+// // function left3() {
+// //   btnleft.addEventListener("click", function () {
+// //     if (
+// //       country.value &&
+// //       district.value &&
+// //       !origin.classList.contains("hidden")
+// //     ) {
+// //       appSteps[3].style.backgroundColor = "red";
+// //       quotesCell.classList.add("hidden");
 //     }
 //   });
 // }
@@ -120,13 +216,3 @@ const string = [
 //   }
 // };
 // btnRigth.addEventListener("click", movingToTheRightPosition);
-
-// btnRunQuote.addEventListener("click", function () {
-//   small = string[Math.trunc(Math.random() * string.length)];
-//   quotePal.textContent = small;
-// });
-// document.querySelector(".btn-quote2").addEventListener("click", function () {
-//   appSteps[4].style.backgroundColor = "green";
-//   document.querySelector(".selected").textContent = quotePal.textContent;
-//   platforms.classList.remove("hidden");
-// });
