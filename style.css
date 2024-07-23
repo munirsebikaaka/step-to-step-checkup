@@ -4,13 +4,6 @@ body {
 .hidden {
   display: none;
 }
-.checked {
-  /* color: green;
-  border-color: green;
-  transition: all 0.4s linear;
-  transition-delay: 0.3s; */
-  background-color: black;
-}
 
 .try-text {
   width: 100px;
@@ -30,7 +23,7 @@ body {
 .all-steps-cell {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin: 70px auto;
 }
 .control-btns {
@@ -50,6 +43,10 @@ body {
   border: 4px solid lightgray;
   color: lightgray;
 }
-.step2 {
-  background-color: red;
+.checked {
+  color: green;
+  border-color: green;
+  transition: all 0.4s linear;
+  transition-delay: 0.3s;
+  color: black;
 }

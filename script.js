@@ -23,7 +23,6 @@ let small = "";
 
 ageSexCell.classList.add("hidden");
 origin.classList.add("hidden");
-// platforms.classList.add("hidden");
 about.classList.add("hidden");
 quotesCell.classList.add("hidden");
 
@@ -63,13 +62,47 @@ const string = [
 ];
 
 let curValue = 1;
-btnRigth.addEventListener("click", function () {
-  //curValue++;
+
+function tr1() {
   steps.forEach((step, i) => {
-    //if (i < curValue)
-    step.classList.add("step");
+    if (i < curValue) {
+      if (i === 1 && firstName.value && lastName.value) {
+        namesCell.classList.add("hidden");
+        origin.classList.remove("hidden");
+      } else if (i === 2 && country.value && district.value) {
+        origin.classList.add("hidden");
+        ageSexCell.classList.remove("hidden");
+      } else if (i === 3 && +birthDates.value && typeOfSEX.value) {
+        ageSexCell.classList.add("hidden");
+        quotesCell.classList.remove("hidden");
+      }
+
+      step.classList.add("checked");
+      step.textContent = i;
+      console.log("yes");
+    } else {
+      step.classList.remove("checked");
+      if (i === 3) {
+        quotesCell.classList.add("hidden");
+        ageSexCell.classList.remove("hidden");
+      } else if (i === 2) {
+        ageSexCell.classList.add("hidden");
+        origin.classList.remove("hidden");
+      } else if (i === 1) {
+        origin.classList.add("hidden");
+        namesCell.classList.remove("hidden");
+      }
+    }
   });
-  console.log("yay");
+}
+
+btnRigth.addEventListener("click", function () {
+  curValue++;
+  tr1();
+});
+btnleft.addEventListener("click", function () {
+  curValue--;
+  tr1();
 });
 
 //THE FUNCTIONALLITY OF THE RANDOM QUOTE SELECTOR
@@ -80,6 +113,7 @@ function aboutRondomQuote() {
   });
 }
 aboutRondomQuote();
+
 function selectedQUOTE() {
   selectorBtn.addEventListener("click", function () {
     document.querySelector(".selected").textContent = quotePal.textContent;
