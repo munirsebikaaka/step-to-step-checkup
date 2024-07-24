@@ -4,7 +4,6 @@
 const namesCell = document.querySelector(".names-cell");
 const ageSexCell = document.querySelector(".age-sex-cell");
 const origin = document.querySelector(".origin");
-const platforms = document.querySelector(".platforms-cell");
 const about = document.querySelector(".about");
 
 //STRUCTURES INPUTS  OF THE APPLICATION
@@ -38,7 +37,7 @@ const sexType = document.querySelector(".sex-type");
 const yourCountry = document.querySelector(".country");
 const region = document.querySelector(".region");
 const bestQuote = document.querySelector(".bestQuote");
-const socialPlatform = document.querySelector("social-platform");
+
 const appSteps = document.querySelectorAll(".step-cell");
 const steps = document.querySelectorAll(".step");
 const appQuotes = document.querySelectorAll(".quotes-content");
@@ -69,12 +68,19 @@ function tr1() {
       if (i === 1 && firstName.value && lastName.value) {
         namesCell.classList.add("hidden");
         origin.classList.remove("hidden");
+        name1.textContent = firstName.value;
+        name2.textContent = lastName.value;
       } else if (i === 2 && country.value && district.value) {
         origin.classList.add("hidden");
         ageSexCell.classList.remove("hidden");
+        yourCountry.textContent = country.value;
+        region.textContent = district.value;
       } else if (i === 3 && +birthDates.value && typeOfSEX.value) {
         ageSexCell.classList.add("hidden");
         quotesCell.classList.remove("hidden");
+        birthYear.textContent = birthDates.value;
+        sexType.textContent = typeOfSEX.value;
+        selectedQUOTE();
       }
 
       step.classList.add("checked");
@@ -84,12 +90,11 @@ function tr1() {
       step.classList.remove("checked");
       if (i === 3) {
         quotesCell.classList.add("hidden");
-        ageSexCell.classList.remove("hidden");
       } else if (i === 2) {
         ageSexCell.classList.add("hidden");
-        origin.classList.remove("hidden");
       } else if (i === 1) {
         origin.classList.add("hidden");
+      } else if (i === 0) {
         namesCell.classList.remove("hidden");
       }
     }
@@ -115,12 +120,11 @@ function aboutRondomQuote() {
 aboutRondomQuote();
 
 function selectedQUOTE() {
-  selectorBtn.addEventListener("click", function () {
-    document.querySelector(".selected").textContent = quotePal.textContent;
-  });
+  // selectorBtn.addEventListener("click", function () {
+  document.querySelector(".selected").textContent = quotePal.textContent;
+  about.classList.remove("hidden");
+  // });
 }
-
-selectedQUOTE();
 
 //ADD THE SLIDE FUNCTIONALLITY TO THE SECTION
 //Add the transform property to the section
