@@ -61,33 +61,49 @@ const string = [
 ];
 
 let curValue = 1;
+const levelOfStep = document.querySelector(".level");
 
 function tr1() {
   steps.forEach((step, i) => {
     if (i < curValue) {
+      step.classList.add("checked");
+      step.innerHTML = `<ion-icon class="check-maker" name="checkmark-outline"></ion-icon> 
+      
+      <p class="lev">${
+        i === 0
+          ? "start"
+          : `level ${i} 
+   ${i === steps.length - 1 ? "finished" : ""}
+        
+        `
+      }
+   </p>
+      
+      `;
+
       if (i === 1 && firstName.value && lastName.value) {
         namesCell.classList.add("hidden");
         origin.classList.remove("hidden");
+
         name1.textContent = firstName.value;
         name2.textContent = lastName.value;
       } else if (i === 2 && country.value && district.value) {
         origin.classList.add("hidden");
         ageSexCell.classList.remove("hidden");
+
         yourCountry.textContent = country.value;
         region.textContent = district.value;
       } else if (i === 3 && +birthDates.value && typeOfSEX.value) {
         ageSexCell.classList.add("hidden");
         quotesCell.classList.remove("hidden");
+
         birthYear.textContent = birthDates.value;
         sexType.textContent = typeOfSEX.value;
         selectedQUOTE();
       }
-
-      step.classList.add("checked");
-      step.textContent = i;
-      console.log("yes");
     } else {
       step.classList.remove("checked");
+      step.innerHTML = `<ion-icon class="check-maker" name="close-outline"></ion-icon>`;
       if (i === 3) {
         quotesCell.classList.add("hidden");
       } else if (i === 2) {
@@ -99,6 +115,16 @@ function tr1() {
       }
     }
   });
+  if (curValue === 1) {
+    btnleft.disabled = true;
+  } else {
+    btnleft.disabled = false;
+  }
+  if (curValue === steps.length) {
+    btnRigth.disabled = true;
+  } else {
+    btnRigth.disabled = false;
+  }
 }
 
 btnRigth.addEventListener("click", function () {

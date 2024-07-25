@@ -42,6 +42,7 @@ body {
   align-items: center;
   border: 4px solid lightgray;
   color: lightgray;
+  position: relative;
 }
 .checked {
   color: green;
@@ -49,4 +50,8 @@ body {
   transition: all 0.4s linear;
   transition-delay: 0.3s;
   color: black;
+}
+.lev {
+  position: absolute;
+  bottom: -40px;
 }
