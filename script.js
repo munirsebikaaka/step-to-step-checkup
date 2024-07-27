@@ -61,6 +61,7 @@ const string = [
 ];
 
 let curValue = 1;
+
 const levelOfStep = document.querySelector(".level");
 
 function tr1() {
@@ -115,7 +116,7 @@ function tr1() {
       }
     }
   });
-  if (curValue === 1) {
+  if (curValue < 2) {
     btnleft.disabled = true;
   } else {
     btnleft.disabled = false;
