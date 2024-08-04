@@ -8,6 +8,7 @@
   </head>
   <body>
     <header>
+      <p class="note-msg"></p>
       <div class="all-steps-cell">
         <div class="step worked-on">
           <ion-icon class="check-maker" name="checkmark-outline"></ion-icon>
@@ -28,8 +29,17 @@
       </div>
 
       <div class="control-btns">
-        <button class="controls controls-left" disabled>left</button
-        ><button class="controls controls-right">right</button>
+        <button class="btn btn-controls controls-left">
+          <ion-icon
+            class="control-icon"
+            name="arrow-back-outline"
+          ></ion-icon></button
+        ><button class="btn btn-controls controls-right">
+          <ion-icon
+            class="control-icon"
+            name="arrow-forward-outline"
+          ></ion-icon>
+        </button>
       </div>
     </header>
 
@@ -38,25 +48,25 @@
         <div class="quotes-content hidden">
           <p class="quote-cell">
             My mom once told me that if u can't find something to live for, at
-            least find something to die for
+            least find something to die for.
           </p>
           <em class="owner">2PAC SHAKUR</em>
         </div>
         <div class="quotes-content hidden">
           <p class="quote-cell">
             It's a struggle for every black man , we all know our selves only
-            God can judge us
+            God can judge us.
           </p>
           <em class="owner">CODESMANN</em>
         </div>
         <div class="quotes-content hidden">
-          <p class="quote-cell">Is it a crime to fight for what is mine</p>
+          <p class="quote-cell">Is it a crime to fight for what is mine.</p>
           <em class="owner">2PAC SHAKUR</em>
         </div>
         <div class="quotes-content hidden">
           <p class="quote-cell">
             If you want to be successful believe in your self and after do
-            something don't just seat thier like a bug of cement
+            something don't just seat thier like a bug of cement.
           </p>
           <em class="owner">MOWZEY RADIO</em>
         </div>
@@ -64,14 +74,14 @@
           <p class="quote-cell">
             every day if you can you just look your self in the mirror and say
             that I am special, I am a winner, I am not a quitter, am going to
-            defeat everybody and always believe in your self
+            defeat everybody and always believe in your self.
           </p>
           <em class="owner">MOWZEY RADIO</em>
         </div>
         <div class="quotes-content hidden">
           <p class="quote-cell">
             If shoot to kill is the order from above then this has to end is the
-            order from the lower people
+            order from the lower people.
           </p>
           <em class="owner">JIM NOLA</em>
         </div>
@@ -85,37 +95,50 @@
           <em class="owner">MUNIR</em>
         </div>
         <div class="quotes-content hidden">
-          <p class="quote-cell">reality is wrong dreams are for real</p>
+          <p class="quote-cell">reality is wrong dreams are for real.</p>
           <em class="owner">2PAC SHAKUR</em>
         </div>
         <div class="quotes-content hidden">
           <p class="quote-cell">
-            No one but ecxept Allah, through him every thing is possible
+            No one but ecxept Allah, through him every thing is possible.
           </p>
           <em class="owner">BASHIR DRIZZY</em>
         </div>
-        <p class="quote"></p>
-        <button class="btn-quote2">select</button>
-        <button class="btn-quote">run quotes</button>
-        <div class="selected"></div>
+        <div class="sel-quote-cell">
+          <p class="quote"></p>
+          <button class="btn btn-quote">select quotes</button>
+        </div>
       </div>
-      <div class="names-cell">
-        <label for="first">first name</label>
-        <input id="first" type="text" class="names" />
-        <label for="last">last name</label>
-        <input id="last" type="text" class="names" />
+      <div class="names-cell input-cell trans-cell">
+        <label for="first" class="label">
+          <ion-icon name="person-add-outline"></ion-icon> first name</label
+        ><br />
+        <input id="first" type="text" class="names input-element" /><br />
+        <label for="last" class="label">
+          <ion-icon name="person-add-outline"></ion-icon> last name</label
+        ><br />
+        <input id="last" type="text" class="names input-element" /><br />
       </div>
-      <div class="age-sex-cell">
-        <label for="birth">date of birth</label>
-        <input id="birth" type="text" class="age-sex" />
-        <label for="sex">sex</label>
-        <input id="sex" type="text" class="age-sex" />
+      <div class="age-sex-cell input-cell trans-cel">
+        <label for="birth" class="label">
+          <ion-icon name="calendar-outline"></ion-icon> year of birth</label
+        >
+        <br />
+        <input id="birth" type="text" class="age-sex input-element" /><br />
+        <label for="sex" class="label"
+          ><ion-icon name="transgender-outline"></ion-icon>sex</label
+        ><br />
+        <input id="sex" type="text" class="age-sex input-element" /><br />
       </div>
-      <div class="origin">
-        <label for="coutry">coutry</label>
-        <input id="coutry" type="text" class="origins" />
-        <label for="district">district</label>
-        <input id="district" type="text" class="origins" />
+      <div class="origin input-cell trans-cel">
+        <label for="coutry" class="label"
+          ><ion-icon name="planet-outline"></ion-icon>country</label
+        ><br />
+        <input id="coutry" type="text" class="origins input-element" /><br />
+        <label for="district" class="label"
+          ><ion-icon name="planet-outline"></ion-icon>district</label
+        ><br />
+        <input id="district" type="text" class="origins input-element" />
       </div>
       <div class="about">
         <p class="content name1"></p>
@@ -125,7 +148,6 @@
         <p class="content country"></p>
         <p class="content region"></p>
         <p class="content bestQuote"></p>
-        <p class="content social-platform"></p>
       </div>
     </main>
   </body>
