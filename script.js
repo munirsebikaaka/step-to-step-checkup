@@ -49,6 +49,9 @@ const btnleft = document.querySelector(".controls-left");
 
 //LOGIC STRUCTURE OF QUOTES
 
+const rightBar = document.querySelector(".move-to-right");
+const doneCell = document.querySelectorAll(".worked-on");
+
 const string = [
   appQuotes[0].textContent,
   appQuotes[1].textContent,
@@ -72,7 +75,7 @@ function aboutRondomQuote() {
     ) {
       small = string[Math.trunc(Math.random() * string.length)];
       quotePal.textContent = small;
-      bestQuote.textContent = small;
+      bestQuote.textContent = `Your favorite quote is ${small}`;
     } else {
       alert(
         "YOU HAVE TO FIRST  FILL IN ALL THE GIVEN INPUTS FOR A CLEAR OUT COME OF YOUR DETAILS!!!!"
@@ -118,18 +121,27 @@ function elseSideOfTheFunctionallity(
 
 const getCurentValue = function (index, value, step) {
   if (index < value) {
+    if (index === 0) {
+      rightBar.style.width = 0 + "%";
+    }
     if (index === 1) {
       simplyfyStepsMoVEMENTFunctionallity(step, index, namesCell, origin);
+      rightBar.style.width = 25 + "%";
+
       name1.textContent = `Your first name is ${firstName.value}`;
       name2.textContent = `Your last name is ${lastName.value}`;
     }
     if (index === 2) {
       simplyfyStepsMoVEMENTFunctionallity(step, index, origin, ageSexCell);
+      rightBar.style.width = 50 + "%";
+
       yourCountry.textContent = `Your country is ${country.value}`;
       region.textContent = `Your region is ${district.value}`;
     }
     if (index === 3) {
       simplyfyStepsMoVEMENTFunctionallity(step, index, ageSexCell, quotesCell);
+      rightBar.style.width = 75 + "%";
+
       birthYear.textContent = `You where born in ${birthDates.value}`;
       sexType.textContent = `Your sex type is ${typeOfSEX.value}`;
     }
@@ -138,6 +150,8 @@ const getCurentValue = function (index, value, step) {
       step.classList.add("worked-on");
       about.classList.remove("hidden");
       quotesCell.classList.add("hidden");
+      rightBar.style.width = 100 + "%";
+
       step.innerHTML = `<p class="last">finish<p>
       <p class="lev">finished<p>`;
     }

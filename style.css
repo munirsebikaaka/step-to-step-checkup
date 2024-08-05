@@ -24,8 +24,27 @@ body {
 .all-steps-cell {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin: 70px auto;
+  justify-content: space-between;
+  margin: 70px 70px;
+  position: relative;
+  /* padding: 0 50px; */
+}
+.move-to-left {
+  position: absolute;
+  height: 5px;
+  top: 30%;
+  left: 0%;
+  width: 100%;
+  background-color: var(--incorect-color);
+}
+.move-to-right {
+  position: absolute;
+  height: 5px;
+  top: 30%;
+  left: 0%;
+  width: 0%;
+  background-color: var(--corect-color);
+  transition: all 0.4s linear;
 }
 .control-btns {
   display: flex;
@@ -33,6 +52,7 @@ body {
   align-items: center;
   gap: 20px;
 }
+
 .step {
   width: 60px;
   height: 60px;
