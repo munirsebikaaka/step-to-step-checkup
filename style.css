@@ -27,7 +27,6 @@ body {
   justify-content: space-between;
   margin: 70px 70px;
   position: relative;
-  /* padding: 0 50px; */
 }
 .move-to-left {
   position: absolute;
@@ -194,4 +193,7 @@ main {
 .content {
   font-size: 1.2rem;
   color: var(--main-color);
+}
+.section-inputs {
+  width: 100%;
 }

@@ -50,7 +50,6 @@ const btnleft = document.querySelector(".controls-left");
 //LOGIC STRUCTURE OF QUOTES
 
 const rightBar = document.querySelector(".move-to-right");
-const doneCell = document.querySelectorAll(".worked-on");
 
 const string = [
   appQuotes[0].textContent,
