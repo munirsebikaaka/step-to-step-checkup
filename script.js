@@ -60,117 +60,113 @@ const string = [
 
 let curValue = 1;
 btnleft.disabled = true;
+btnleft.style.backgroundColor = "grey";
 
 function aboutRondomQuote() {
   btnRunQuote.addEventListener("click", function () {
-    small = string[Math.trunc(Math.random() * string.length)];
-    quotePal.textContent = small;
-    bestQuote.textContent = small;
+    if (
+      country.value &&
+      district.value &&
+      +birthDates.value &&
+      typeOfSEX.value
+    ) {
+      small = string[Math.trunc(Math.random() * string.length)];
+      quotePal.textContent = small;
+      bestQuote.textContent = small;
+    } else {
+      alert(
+        "YOU HAVE TO FIRST  FILL IN ALL THE GIVEN INPUTS FOR A CLEAR OUT COME OF YOUR DETAILS!!!!"
+      );
+    }
   });
 }
 aboutRondomQuote();
 
-function cUp(value) {
-  contentCellAll.forEach((cel) => {
-    if (!cel.textContent && value === 5) {
-      document.querySelector(".note-msg").textContent = "some inputs are empty";
-    } else {
-      about.classList.remove("hidden");
-    }
-  });
+function simplyfyStepsMoVEMENTFunctionallity(
+  step,
+  index,
+  cellToAdd,
+  cellToRemove
+) {
+  step.classList.add("worked-on");
+  step.innerHTML = `<ion-icon class="check-maker corect" name="checkmark-outline"></ion-icon>
+      <p class="lev">${index === 0 ? "start" : `step ${index}`}</p>`;
+  cellToAdd.classList.add("hidden");
+  cellToRemove.classList.remove("hidden");
+}
+
+function elseSideOfTheFunctionallity(
+  step,
+  index,
+  quoteC1,
+  quoteC2,
+  quoteC3,
+  quoteC4
+) {
+  step.classList.remove("worked-on");
+  step.innerHTML = `<ion-icon class="check-maker" name="close-outline"></ion-icon>`;
+  if (index === 3) {
+    quoteC1.classList.add("hidden");
+  } else if (index === 2) {
+    quoteC2.classList.add("hidden");
+  } else if (index === 1) {
+    quoteC3.classList.add("hidden");
+  } else if (index === 0) {
+    quoteC4.classList.remove("hidden");
+  }
 }
 
 const getCurentValue = function (index, value, step) {
   if (index < value) {
-    cUp(value);
-    if (index === 1 && firstName.value && lastName.value && value === 2) {
-      step.classList.add("worked-on");
-      step.innerHTML = `<ion-icon class="check-maker" name="checkmark-outline"></ion-icon>
-      <p class="lev">${index === 0 ? "start" : `level ${index}`}</p>`;
-      namesCell.classList.add("hidden");
-      origin.classList.remove("hidden");
+    if (index === 1) {
+      simplyfyStepsMoVEMENTFunctionallity(step, index, namesCell, origin);
       name1.textContent = `Your first name is ${firstName.value}`;
       name2.textContent = `Your last name is ${lastName.value}`;
     }
-
-    if (
-      index === 2
-      //&& country.value && district.value
-    ) {
-      if (!country.value && district.value) {
-        alert("wrong");
-      }
-      step.innerHTML = `<ion-icon class="check-maker" name="checkmark-outline"></ion-icon>
-      <p class="lev">${
-        index === 0
-          ? "start"
-          : `level ${index}
-
-        `
-      } </p>
-
-      `;
-      step.classList.add("worked-on");
-      origin.classList.add("hidden");
-
+    if (index === 2) {
+      simplyfyStepsMoVEMENTFunctionallity(step, index, origin, ageSexCell);
       yourCountry.textContent = `Your country is ${country.value}`;
       region.textContent = `Your region is ${district.value}`;
-      // if (!yourCountry.textContent && region.textContent) {
-      //   alert("please fill in the inputs.");
-      // } else {
-      //   ageSexCell.classList.remove("hidden");
-      // }
-      if (!yourCountry.textContent && region.textContent) {
-        alert("please fill in the inputs.");
-      }
-      ageSexCell.classList.remove("hidden");
     }
-
-    if (index === 3 && +birthDates.value && typeOfSEX.value) {
-      step.classList.add("worked-on");
-      step.innerHTML = `<ion-icon class="check-maker" name="checkmark-outline"></ion-icon><p class="lev">${
-        index === 0 ? "start" : `level ${index}`
-      }</p>`;
-      // if (!yourCountry.textContent && region.textContent) {
-      //   alert("please fill in the inputs.");
-      // }
-      ageSexCell.classList.add("hidden");
-      quotesCell.classList.remove("hidden");
-
-      birthYear.textContent = `You where born on ${birthDates.value}`;
+    if (index === 3) {
+      simplyfyStepsMoVEMENTFunctionallity(step, index, ageSexCell, quotesCell);
+      birthYear.textContent = `You where born in ${birthDates.value}`;
       sexType.textContent = `Your sex type is ${typeOfSEX.value}`;
     }
 
     if (index === 4) {
       step.classList.add("worked-on");
       about.classList.remove("hidden");
-      step.innerHTML = `<p>finished<p><class="lev">finished<class=>`;
+      quotesCell.classList.add("hidden");
+      step.innerHTML = `<p class="last">finish<p>
+      <p class="lev">finished<p>`;
     }
   } else {
-    step.classList.remove("worked-on");
-    step.innerHTML = `<ion-icon class="check-maker" name="close-outline"></ion-icon>`;
-    if (index === 3) {
-      quotesCell.classList.add("hidden");
-    } else if (index === 2) {
-      ageSexCell.classList.add("hidden");
-    } else if (index === 1) {
-      origin.classList.add("hidden");
-    } else if (index === 0) {
-      namesCell.classList.remove("hidden");
-    }
+    elseSideOfTheFunctionallity(
+      step,
+      index,
+      quotesCell,
+      ageSexCell,
+      origin,
+      namesCell
+    );
   }
 };
 
 const deActivateBTNAndActivateBTN = function (value) {
   if (value < 2) {
     btnleft.disabled = true;
+    btnleft.style.backgroundColor = "grey";
   } else {
     btnleft.disabled = false;
+    btnleft.style.backgroundColor = "inherit";
   }
   if (value === steps.length) {
     btnRigth.disabled = true;
+    btnRigth.style.backgroundColor = "grey";
   } else {
     btnRigth.disabled = false;
+    btnRigth.style.backgroundColor = "inherit";
   }
 };
 
@@ -194,5 +190,3 @@ btnleft.addEventListener("click", () => {
   curValue--;
   runCurValueFunctionallity();
 });
-
-//THE FUNCTIONALLITY OF THE RANDOM QUOTE SELECTOR
